@@ -1,0 +1,26 @@
+body{
+    background-color: white;
+    align-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.phi{
+    /* border: 2px solid black; */
+    background-color: blanchedalmond;
+    width: 400px;
+    
+    box-shadow: inset;
+}
+table{
+    border: 2px solid black;
+    background-color: blanchedalmond;
+    width: 400px;
+    padding: 5x;
+}
+input{
+    width: 390px;
+}
+button{
+    width: 100%;
+    margin-top: 10px;
+    background-color: blue;
+}
