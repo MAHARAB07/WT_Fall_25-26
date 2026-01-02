@@ -8,6 +8,97 @@
 </head>
 <body>
 
+<?php
+$fname ="";
+$lname="";
+$phone="";
+$email="";
+$password="";
+$cpassword="";
+$fnameErr="";
+$lnameErr=""; 
+$phoneErr="";
+$emailErr="";
+$passErr=""; 
+$cpassErr = "";
+$successMsg = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    // First Name
+    if (empty($_POST["fname"])) {
+        $fnameErr = "First name is required";
+    } else {
+        $fname = test_input($_POST["fname"]);
+        if (!preg_match("/^[a-zA-Z ]*$/", $fname)) {
+            $fnameErr = "Only letters allowed";
+        }
+    }
+
+    // Last Name
+    if (empty($_POST["lname"])) {
+        $lnameErr = "Last name is required";
+    } else {
+        $lname = test_input($_POST["lname"]);
+        if (!preg_match("/^[a-zA-Z ]*$/", $lname)) {
+            $lnameErr = "Only letters allowed";
+        }
+    }
+
+    // Phone Number
+    if (empty($_POST["phone"])) {
+        $phoneErr = "Phone number is required";
+    } else {
+        $phone = test_input($_POST["phone"]);
+        if (!preg_match("/^[0-9]{11}$/", $phone)) {
+            $phoneErr = "Phone number must be 11 digits";
+        }
+    }
+
+    // Email
+    if (empty($_POST["email"])) {
+        $emailErr = "Email is required";
+    } else {
+        $email = test_input($_POST["email"]);
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $emailErr = "Invalid email format";
+        }
+    }
+
+    // Password
+    if (empty($_POST["password"])) {
+        $passErr = "Password is required";
+    } else {
+        $password = test_input($_POST["password"]);
+        if (strlen($password) < 6) {
+            $passErr = "Password must be at least 6 characters";
+        }
+    }
+
+    // Confirm Password
+    if (empty($_POST["cpassword"])) {
+        $cpassErr = "Confirm password is required";
+    } else {
+        $cpassword = test_input($_POST["cpassword"]);
+        if ($password != $cpassword) {
+            $cpassErr = "Passwords do not match";
+        }
+    }
+
+    // Final success
+    if (empty($fnameErr) && empty($lnameErr) && empty($phoneErr) &&
+        empty($emailErr) && empty($passErr) && empty($cpassErr)) {
+
+        $successMsg = "Registration Successful!";
+    }
+}
+
+// Input cleaning function
+function test_input($data) {
+    return trim($data);
+}
+?>
+
 <div class="register-container">
     <h2>Patient Registration</h2>
     <p class="subtitle">Create your account</p>

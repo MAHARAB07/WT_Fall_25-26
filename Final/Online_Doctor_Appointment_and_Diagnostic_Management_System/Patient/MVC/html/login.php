@@ -9,9 +9,11 @@
 <body>
 
 <?php
-$phone = $password = "";
-$phoneError = $passwordError = $loginError = "";
-
+$phone="";
+$password = "";
+$phoneError="";
+$passwordError="";
+$loginError = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
