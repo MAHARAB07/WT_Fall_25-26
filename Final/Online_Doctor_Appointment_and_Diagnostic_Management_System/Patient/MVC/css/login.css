@@ -90,3 +90,11 @@ body {
     display: block;
     margin-top: 8px;
 }
+
+.error {
+    color: red;
+    font-size: 13px;
+    margin-top: 4px;
+    display: block;
+}
+
