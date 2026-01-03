@@ -16,7 +16,7 @@ $successMsg = "";
 
 if($_SERVER["REQUEST_METHOD"]=="POST") {
 
-    // First Name
+    
     if(empty($_POST["fname"])){
         $fnameErr="First name is required";
     } 
@@ -27,7 +27,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST") {
         }
     }
 
-    // Last Name
+    
     if(empty($_POST["lname"])) {
         $lnameErr="Last name is required";
     } else{
@@ -37,7 +37,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST") {
         }
     }
 
-    // Phone Number
+    
     if(empty($_POST["phone"])) {
         $phoneErr = "Phone number is required";
     } 
@@ -48,7 +48,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST") {
         }
     }
 
-    // Email
+    
     if(empty($_POST["email"])) {
         $emailErr="Email is required";
     } 
@@ -59,7 +59,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST") {
         }
     }
 
-    // Password
+    
     if(empty($_POST["password"])) {
         $passErr="Password is required";
     } 
@@ -70,7 +70,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST") {
         }
     }
 
-    // Confirm Password
+    
     if(empty($_POST["cpassword"])) {
         $cpassErr="Confirm password is required";
     } 
@@ -89,7 +89,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST") {
     }
 }
 
-//
+
 function test_input($data) {
     return trim($data);
 }
@@ -99,7 +99,7 @@ function test_input($data) {
     <h2>Patient Registration</h2>
     <p class="subtitle">Create your account</p>
 
-    <form method="post" action="">
+    <form method="post" action="../php/register.php"enctype="multipart/form-data">
         
         <div class="input">
             <label>First Name</label>

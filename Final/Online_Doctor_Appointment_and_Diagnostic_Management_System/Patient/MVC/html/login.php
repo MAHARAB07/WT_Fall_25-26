@@ -17,7 +17,7 @@ $loginError = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    //phone number validation
+    
     if (empty($_POST["number"])) {
         $phoneError = "Phone number is required";
     } else {
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    //password validation
+    
     if (empty($_POST["password"])) {
         $passwordError = "Password is required";
     } else {
