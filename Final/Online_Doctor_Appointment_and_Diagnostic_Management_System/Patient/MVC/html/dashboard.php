@@ -33,12 +33,12 @@
     <p>Simply browse through our extensive list of trusted doctors.</p>
 
     <div class="speciality-grid">
-        <div class="spec">General physician</div>
-        <div class="spec">Gynecologist</div>
-        <div class="spec">Dermatologist</div>
-        <div class="spec">Pediatricians</div>
-        <div class="spec">Neurologist</div>
-        <div class="spec">Gastroenterologist</div>
+        <button>General physician</button>
+        <button>Gynecologist</button>
+        <button>Dermatologist</button>
+        <button>Pediatricians</button>
+        <button>Neurologist</button>
+        <button>Gastroenterologist</button>
     </div>
 </section>
 
