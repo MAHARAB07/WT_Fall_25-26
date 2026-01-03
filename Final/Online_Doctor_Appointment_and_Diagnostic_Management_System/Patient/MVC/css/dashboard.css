@@ -9,7 +9,7 @@ body{
     background:#f8f9ff;
 }
 
-/* NAVBAR */
+
 .navbar{
     display:flex;
     justify-content:space-between;
@@ -32,7 +32,7 @@ body{
     border-radius:20px;
 }
 
-/* HERO */
+
 .hero{
     background:#5f6dfb;
     display:flex;
@@ -55,7 +55,7 @@ body{
     border-radius:20px;
 }
 
-/* SPECIALITY */
+
 .speciality{
     text-align:center;
     padding:60px;
@@ -74,7 +74,7 @@ body{
     border-radius:50%;
 }
 
-/* DOCTORS */
+
 .doctors{
     text-align:center;
     padding:60px;
@@ -97,10 +97,7 @@ body{
     width:120px;
 }
 
-.status{
-    color:green;
-    font-size:14px;
-}
+
 
 .more-btn{
     margin-top:30px;
@@ -109,7 +106,7 @@ body{
     border-radius:20px;
 }
 
-/* CTA */
+
 .cta{
     background:#5f6dfb;
     color:#fff;
@@ -127,21 +124,5 @@ body{
     border-radius:20px;
 }
 
-/* FOOTER */
-footer{
-    background:#fff;
-    padding:50px;
-    display:flex;
-    justify-content:space-between;
-}
 
-footer a{
-    display:block;
-    color:#555;
-    text-decoration:none;
-    margin-top:8px;
-}
 
-copyright{
-    text-align:center;
-}
