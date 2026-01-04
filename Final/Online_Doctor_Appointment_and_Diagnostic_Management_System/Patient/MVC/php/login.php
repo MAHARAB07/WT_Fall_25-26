@@ -7,7 +7,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone = trim($_POST["number"]);
     $password = $_POST["password"];
 
-    // Validation
     if (empty($phone) || empty($password)) {
         header("Location: ../html/login.php?error=empty");
         exit();
@@ -18,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    // Check user in database
     $sql = "SELECT * FROM users WHERE phone_number = '$phone'";
     $result = $conn->query($sql);
 
@@ -26,10 +24,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $user = $result->fetch_assoc();
 
-        // Verify password
         if (password_verify($password, $user['password'])) {
 
-            // Create session
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_name'] = $user['name'];
             $_SESSION['user_phone'] = $user['phone_number'];

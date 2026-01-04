@@ -13,12 +13,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
     $cpassword = $_POST["cpassword"];
 
-    // Optional fields (can be empty)
     $address = "";
     $age = NULL;
     $blood_group = "";
 
-    // Basic validation
     if (empty($fname) || empty($lname) || empty($phone) || empty($email) || empty($password)) {
         $errorMsg = "All required fields must be filled!";
     }
@@ -27,10 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     else {
 
-        // Hash password
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        // Insert query
         $sql = "INSERT INTO users (name, phone_number, email, address, age, blood_group, password)
                 VALUES ('$name', '$phone', '$email', '$address', '$age', '$blood_group', '$hashedPassword')";
 
