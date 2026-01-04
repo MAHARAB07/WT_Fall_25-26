@@ -24,7 +24,7 @@ body{
     color:#333;
 }
 
-#nav-btn{
+.nav-btn{
     background:#5f6dfb;
     color:#fff;
     padding:8px 18px;
@@ -55,7 +55,6 @@ body{
 
 
 .speciality{
-    
     margin-top:20px;
     padding:12px 25px;
     border:none;
@@ -124,6 +123,3 @@ body{
     border:none;
     border-radius:20px;
 }
-
-
-

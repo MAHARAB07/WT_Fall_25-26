@@ -14,7 +14,7 @@
         <a href="">All Doctors</a>
         <a href="">About</a>
         <a href="">Contact</a>
-        <a href="login.php" id="nav-btn">Login</a>
+        <button class="nav-btn">Profile</button>
     </nav>
 </header>
 
@@ -27,6 +27,7 @@
    
 </section>
 
+<!-- speciality -->
 <section class="speciality">
     <h2>Find by Speciality</h2>
     <p>Simply browse through our extensive list of trusted doctors.</p>
@@ -41,6 +42,7 @@
     </div>
 </section>
 
+<!-- doctor -->
 <section class="doctors">
     <h2>Top Doctors to Book</h2>
     <p>Simply browse through our extensive list of trusted doctors.</p>
