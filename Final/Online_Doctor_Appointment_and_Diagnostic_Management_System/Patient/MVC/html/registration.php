@@ -131,7 +131,7 @@ function test_input($data) {
             <input type="password" name="cpassword" placeholder="Confirm password">
         </div>
 
-        <button type="submit" class="register-btn">Register</button>
+        <button type="submit" class="register-btn"> <a href="../html/login.php">Register</a> </button>
     </form>
 </div>
 
