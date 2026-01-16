@@ -8,131 +8,54 @@
 </head>
 <body>
 
-<?php
-$fname = $lname = $phone = $email = "";
-$password = $cpassword = "";
-$fnameErr = $lnameErr = $phoneErr = $emailErr = $passErr = $cpassErr = "";
-$successMsg = "";
-
-if($_SERVER["REQUEST_METHOD"]=="POST") {
-
-    
-    if(empty($_POST["fname"])){
-        $fnameErr="First name is required";
-    } 
-    else{
-        $fname=test_input($_POST["fname"]);
-        if(!preg_match("/^[a-zA-Z ]*$/",$fname)) {
-            $fnameErr="Only letters allowed";
-        }
-    }
-
-    
-    if(empty($_POST["lname"])) {
-        $lnameErr="Last name is required";
-    } else{
-        $lname=test_input($_POST["lname"]);
-        if(!preg_match("/^[a-zA-Z ]*$/",$lname)) {
-            $lnameErr="Only letters allowed";
-        }
-    }
-
-    
-    if(empty($_POST["phone"])) {
-        $phoneErr = "Phone number is required";
-    } 
-    else {
-        $phone=test_input($_POST["phone"]);
-        if(!preg_match("/^[0-9]{11}$/", $phone)) {
-            $phoneErr="Phone number must be 11 digits";
-        }
-    }
-
-    
-    if(empty($_POST["email"])) {
-        $emailErr="Email is required";
-    } 
-    else{
-        $email=test_input($_POST["email"]);
-        if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $emailErr="Invalid email format";
-        }
-    }
-
-    
-    if(empty($_POST["password"])) {
-        $passErr="Password is required";
-    } 
-    else{
-        $password=test_input($_POST["password"]);
-        if(strlen($password) < 6) {
-            $passErr="Password must be at least 6 characters";
-        }
-    }
-
-    
-    if(empty($_POST["cpassword"])) {
-        $cpassErr="Confirm password is required";
-    } 
-    else{
-        $cpassword=test_input($_POST["cpassword"]);
-        if($password !=$cpassword) {
-            $cpassErr="Passwords do not match";
-        }
-    }
-
-    
-    if(empty($fnameErr)&&empty($lnameErr)&&empty($phoneErr)&&
-        empty($emailErr)&&empty($passErr)&&empty($cpassErr)) {
-
-        $successMsg="Registration Successful!";
-    }
-}
-
-
-function test_input($data) {
-    return trim($data);
-}
-?>
-
 <div class="register-container">
     <h2>Patient Registration</h2>
     <p class="subtitle">Create your account</p>
 
-    <form method="post" action="../php/register.php"enctype="multipart/form-data">
+    <?php
+    if (isset($_GET['error'])) {
+        if ($_GET['error'] == "phone_exists") {
+            echo "<p class='error' style='color:red;'>This phone number is already registered</p>";
+        }
+    }
+    ?>
+
+    <form method="post" action="../php/register.php" enctype="multipart/form-data">
         
         <div class="input">
             <label>First Name</label>
-            <input type="text"name="fname"placeholder="Enter first name">
+            <input type="text" name="fname" placeholder="Enter first name" required>
         </div>
 
         <div class="input">
             <label>Last Name</label>
-            <input type="text"name="lname"placeholder="Enter last name">
+            <input type="text" name="lname" placeholder="Enter last name" required>
         </div>
 
         <div class="input">
             <label>Phone Number</label>
-            <input type="text"name="phone"placeholder="01XXXXXXXXX">
+            <input type="text" name="phone" placeholder="01XXXXXXXXX" required>
         </div>
 
         <div class="input">
             <label>Email</label>
-            <input type="email"name="email"placeholder="Enter email">
+            <input type="email" name="email" placeholder="Enter email" required>
         </div>
 
         <div class="input">
             <label>Password</label>
-            <input type="password"name="password"placeholder="Enter password">
+            <input type="password" name="password" placeholder="Enter password" required>
         </div>
 
         <div class="input">
             <label>Confirm Password</label>
-            <input type="password" name="cpassword" placeholder="Confirm password">
+            <input type="password" name="cpassword" placeholder="Confirm password" required>
         </div>
 
-        <button type="submit" class="register-btn"> <a href="../html/login.php">Register</a> </button>
+        <button type="submit" class="register-btn">Register</button>
     </form>
+
+    <p>Already registered? <a href="login.php">Login here</a></p>
 </div>
 
 </body>

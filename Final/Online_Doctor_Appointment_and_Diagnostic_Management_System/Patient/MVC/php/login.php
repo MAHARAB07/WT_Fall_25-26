@@ -17,18 +17,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    $sql = "SELECT * FROM users WHERE phone_number = '$phone'";
-    $result = $conn->query($sql);
+    $sql = "SELECT * FROM users WHERE phone = '$phone'";
+    $result = mysqli_query($conn, $sql);
 
-    if ($result && $result->num_rows === 1) {
+    if ($result && mysqli_num_rows($result) === 1) {
 
-        $user = $result->fetch_assoc();
+        $user = mysqli_fetch_assoc($result);
 
         if (password_verify($password, $user['password'])) {
 
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['user_name'] = $user['name'];
-            $_SESSION['user_phone'] = $user['phone_number'];
+            $_SESSION['user_id']   = $user['user_id'];
+            $_SESSION['user_name'] = $user['full_name'];
+            $_SESSION['user_phone'] = $user['phone'];
+            $_SESSION['role'] = $user['role'];
 
             header("Location: ../html/logedinDashboard.php");
             exit();
