@@ -4,16 +4,22 @@ include "../db/configDB.php";
 $keyword = "";
 
 if (isset($_GET['keyword'])) {
-    $keyword = mysqli_real_escape_string($conn, $_GET['keyword']);
+    $keyword = trim($_GET['keyword']);
 }
 
-$sql = "SELECT * FROM doctors 
-        WHERE status = 'Available'
-        AND (
-            full_name LIKE '%$keyword%' 
-            OR specialization LIKE '%$keyword%' 
-            OR category LIKE '%$keyword%'
-        )";
+/* 🔎 Base query */
+$sql = "SELECT * FROM doctors WHERE status='Available'";
+
+/* 🔍 If search keyword exists */
+if (!empty($keyword)) {
+    $keyword = mysqli_real_escape_string($conn, $keyword);
+
+    $sql .= " AND (
+        full_name LIKE '%$keyword%'
+        OR specialization LIKE '%$keyword%'
+        OR category LIKE '%$keyword%'
+    )";
+}
 
 $result = mysqli_query($conn, $sql);
 

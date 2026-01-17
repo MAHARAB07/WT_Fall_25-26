@@ -12,7 +12,7 @@ function withAjax() {
 
     xhttp.open(
         "GET",
-        "../php/searchDoctors.php?keyword=" + encodeURIComponent(keyword),
+        "../php/searchDoctor.php?keyword=" + encodeURIComponent(keyword),
         true
     );
 

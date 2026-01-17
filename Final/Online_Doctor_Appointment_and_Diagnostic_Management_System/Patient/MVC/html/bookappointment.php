@@ -2,13 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Appointment | Prescripto</title>
+    <title>Book Appointment</title>
     <link rel="stylesheet" href="../css/bookappointment.css">
 </head>
 <body>
 
-<!-- Navbar -->
 <header class="navbar">
     <div class="logo">Consultation Time</div>
     <nav>
@@ -20,24 +18,29 @@
     </nav>
 </header>
 
-<!-- Page Title -->
 <div class="page-title">
     <h1>Book Appointment</h1>
-    <p>Select your preferred doctor and proceed to book an appointment</p>
+    <p>Select your preferred doctor</p>
 </div>
 
-<!-- Search Bar -->
 <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="Search doctors by name or specialty">
-    <button class="search-btn" onclick="withAjax()">Search</button>
+    <input type="text" id="searchInput"
+           placeholder="Search by name / specialization / category">
+    <button onclick="withAjax()">Search</button>
 </div>
 
-<!-- AJAX Result -->
 <div id="doctorResult" class="doctor-grid">
-    <p style="text-align:center;">Search to see doctors</p>
+    <p style="text-align:center;">Loading doctors...</p>
 </div>
 
 <script src="../js/search.js"></script>
+
+<script>
+    window.onload = function () {
+        withAjax(); 
+    };
+</script>
+
 
 </body>
 </html>
