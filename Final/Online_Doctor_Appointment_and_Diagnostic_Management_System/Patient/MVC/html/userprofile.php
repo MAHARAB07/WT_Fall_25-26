@@ -11,6 +11,7 @@
 <header class="navbar">
     <div class="logo">Consultation Time</div>
     <nav>
+        <a href="../php/logout.php">Logout</a>
         <a href="dashboard.php">Dashboard</a>
         <a href="#">Appointments</a>
         <a href="#">Reports</a>
@@ -21,7 +22,6 @@
 <div class="profile-container">
 
     <div class="profile-card">
-        <img src="../images/user.png">
         <h2><?php echo $user['full_name']; ?></h2>
         <p><?php echo ucfirst($user['role']); ?></p>
     </div>
@@ -36,7 +36,7 @@
 
         <label>Email</label>
         <input type="email"
-               value="<?php echo $user['email']; ?>" disabled>
+               value="<?php echo $user['email']; ?>">
 
         <label>Phone</label>
         <input type="text" name="phone"
